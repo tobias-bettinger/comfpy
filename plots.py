@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import pandas as pd
-from filters import Wb, Wc, Wd, Wp
+from filters import Wb, Wc, Wd, Wp, By, Bz
 from matplotlib.patches import Rectangle
 from scipy import signal
 
@@ -31,3 +31,20 @@ def plot_bode(freq, angles, fs, resp, savefilename, filterstr):
         plt.savefig(savefilename)
     else:
         plt.show()
+
+
+def plot_Wz_weighting_curves(f):
+    bVert = Bz(f)
+    bLat = By(f)
+    # Plot weighting curves
+    figWC, axesWC = plt.subplots(1, 1, figsize=(9, 6), sharex=False)
+    axesWC.set_title('$Wz$ weighting curves')
+    axesWC.plot(f, bVert, label='Vertical', color="#00549F", linewidth=1)
+    axesWC.plot(f, bLat, label='Horizontal', color="#57AB27", linewidth=1)
+    axesWC.set_xlabel("Frequency [$Hz$]")
+    axesWC.set_ylabel("Weight [-]")
+    axesWC.minorticks_on()
+    axesWC.grid(which='major', linestyle='-', linewidth=0.5)
+    axesWC.grid(which='minor', linestyle='-', linewidth=0.1)
+    axesWC.legend()
+    plt.show()
