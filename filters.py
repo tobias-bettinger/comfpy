@@ -132,3 +132,39 @@ def Wp(fs):
     # Create digital filter from analaog coefficients
     Hp = signal.bilinear(Hpb, Hpa, fs)
     return Hp
+
+
+def plot_acc_spectogram(a_in, fftL, nov, fs):
+    f, ax2 = plt.subplots(1, 1, figsize=(9, 6))
+
+    # ax1.plot(dataRS.index.total_seconds(), dataRS["ax1"], color="#00549F")
+    # ax1.set_ylabel('Acceleration [$m/s^2$]')
+    # ax1.minorticks_on()
+    # ax1.grid(which='major', linestyle='-', linewidth=0.5)
+    # ax1.grid(which='minor', linestyle='-', linewidth=0.1)
+    # ax1.set_xlim(0, dataRS.index.total_seconds()[-1])
+    # ax1.set_ylim(-10, 10)
+    # ax1.get_yaxis().set_label_coords(-0.075, 0.5)
+    # ax1.set_title("X-Acceleration")
+
+    Pxx, freqx, bins, im = ax2.specgram(a_in, NFFT=fftL, Fs=fs, noverlap=nov, cmap='summer')
+    ax2.set_xlabel('Time [$s$]')
+    ax2.set_ylabel('Frequency [$Hz$]', labelpad=15)
+    ax2.get_yaxis().set_label_coords(-0.075, 0.5)
+    plt.close()
+
+    return freqx, Pxx, bins
+
+
+def Bz(fs, f):
+    f
+    bVert = 0.588 * np.sqrt((1.911 * np.square(f) + np.square(0.25 * np.square(f))) / (
+            np.square(1 - 0.277 * np.square(f)) + np.square(1.563 * f - 0.0368 * np.power(f, 3))))
+    return bVert
+
+
+def By(fs, f):
+    bVert = Bz(fs, f)
+    bLat = 1.25 * bVert
+    return bLat
+
