@@ -1,5 +1,5 @@
 # comfpy
-Several python scripts for the evaluation of ride comfort in vehicles follwing diverse standards, such as EN 12299 or Wz-Method.
+Several python scripts for the offline evaluation of ride comfort in vehicles using measured acceleration signals follwing diverse standards, such as EN 12299 or Wz-Method.
 
 ## Current state
 + EN 12299: filtering implemented
