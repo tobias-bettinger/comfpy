@@ -9,5 +9,6 @@ Several python scripts for the offline evaluation of ride comfort in vehicles us
 + ISO 2631: additional filters need to be implemented
 + ISO / EN: RMS, VDV, ... missing
 + Random test signal generator
++ add measured test data
 + Maybe introduce ```sensor objects``` that contain multiple acceleration channels
 + ```measurement setup``` containing ```sensor objects```
