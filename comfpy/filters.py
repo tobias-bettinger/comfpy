@@ -156,14 +156,16 @@ def plot_acc_spectogram(a_in, fftL, nov, fs):
     return freqx, Pxx, bins
 
 
-def Bz(fs, f):
-    f
-    bVert = 0.588 * np.sqrt((1.911 * np.square(f) + np.square(0.25 * np.square(f))) / (
-            np.square(1 - 0.277 * np.square(f)) + np.square(1.563 * f - 0.0368 * np.power(f, 3))))
+def Bz(fs, f, status='DB'):
+    if status == 'DB':
+        bVert = 0.588 * np.sqrt((1.911 * np.square(f) + np.square(0.25 * np.square(f))) / (
+                np.square(1 - 0.277 * np.square(f)) + np.square(1.563 * f - 0.0368 * np.power(f, 3))))
+    elif status == 'ORE':
+        print('not implemented yet')
     return bVert
 
 
-def By(fs, f):
+def By(fs, f, status='ORE'):
     bVert = Bz(fs, f)
     bLat = 1.25 * bVert
     return bLat

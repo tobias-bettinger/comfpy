@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import pandas as pd
-from filters import Wb, Wc, Wd, Wp, By, Bz
+from comfpy.filters import Wb, Wc, Wd, Wp, By, Bz
 from matplotlib.patches import Rectangle
 from scipy import signal
 

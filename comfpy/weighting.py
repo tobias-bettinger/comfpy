@@ -2,21 +2,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import pandas as pd
-from filters import Wb, Wc, Wd, Wp, By, Bz, plot_acc_spectogram
+from comfpy.filters import Wb, Wc, Wd, Wp, By, Bz, plot_acc_spectogram
 from matplotlib.patches import Rectangle
+from matplotlib import cm
+import seaborn as sns
 from scipy import signal
-from plots import plot_bode
-
-
-def generate_random_samples():
-    x = np.linspace(0, 360, 360*1200)
-    return np.sin(x)*np.cos(x + np.random.normal(scale=0.1, size=len(x))) + np.random.normal(scale=0.1, size=len(x))
+from comfpy.plots import plot_bode
+from comfpy.features import *
 
 
 class FrequencyWeighting:
     def __init__(self, standard='en12299', fs=None):
         self.standard = standard
         self.fs = fs
+        self.posture = None
+        self.direction = None
         self._validate()
 
     def _check_fs(self, fs):
@@ -94,11 +94,10 @@ class FrequencyWeighting:
 
     def _filter_wz(self, filterstr=None, a_infilt=None, fs=None):
         if filterstr is not None:
-            fftL = fs * 2  # 2 second window length
-            nov = fs * 1  # Number of overlapp samples
+            fftL = fs * 5  # 5 second window length
+            nov = int(fs * 1 / 10)  # 100 ms overlap
             freqx, Pxx, bins = plot_acc_spectogram(a_infilt, fftL, nov, fs)
             B = self.get(filterstr, f=freqx)
-            plt.plot(freqx, Pxx, B)
             cWz = np.dot(np.diag(np.square(100 * B)), Pxx)
 
             return cWz, freqx, Pxx
@@ -127,4 +126,3 @@ class FrequencyWeighting:
         freq, resp = signal.freqz(H[0], H[1], worN=1024)
         angles = np.unwrap(np.angle(resp))
         plot_bode(freq, angles, self.fs, resp, savefilename, filterstr)
-
