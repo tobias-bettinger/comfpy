@@ -35,7 +35,7 @@ A detailed description of the method can be found in <a id="1">[1]</a>. Using th
 f = en12299(fs=200, channels=channels, analyse='full')
 print(f.get('1', 'cc'))
 ```
-...will output:
+will output a pandas DataFrame containing the continuous comfort values (frequency weighted 5 s RMS values) for each direction for channel ```1```:
 ```
              x         y         z
 0     0.001375  0.000607  0.002540
