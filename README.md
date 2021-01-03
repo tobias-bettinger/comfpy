@@ -2,7 +2,7 @@
 Several python scripts for the offline evaluation of ride comfort in vehicles using measured acceleration signals follwing diverse standards, such as EN 12299 or Wz-Method.
 
 ## Current state
-+ EN 12299: filtering implemented
++ EN 12299: filtering implemented and calculation of CC-values
 + Wz: Filtering and calculation of Wz-values
 
 ## To Do
