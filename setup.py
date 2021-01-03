@@ -11,8 +11,9 @@ setuptools.setup(
     description="comfort evaluation scripts",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/comfpy",
+    url="https://github.com/tobias-bettinger/comfpy",
     packages=setuptools.find_packages(),
+    install_requires=['numpy', 'matplotlib', 'scipy', 'pandas', 'seaborn', 'window-slider'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
