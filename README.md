@@ -20,7 +20,7 @@ channels = {'x': {'1': ax1},
             'z': {'1': az1}}
 ```
 ### EN 12299
-A detailed description of the method can be found in <a id="1">[1]</a>. Using the previously composed channels dictionary ```channels```, a sample frequency of the acceleration channels of ```fs=200``` Hz (consistancy for each channel assumed), the Continuous Comfort Values $´CC`$ can be calculated. The application of the appropriate filters is done automatically:
+A detailed description of the method can be found in <a id="1">[1]</a>. Using the previously composed channels dictionary ```channels```, a sample frequency of the acceleration channels of ```fs=200``` Hz (consistancy for each channel assumed), the Continuous Comfort Values CC can be calculated. The application of the appropriate filters is done automatically:
 ```python
 f = en12299(fs=200, channels=channels, analyse='full')
 print(f.get('1', 'cc'))
