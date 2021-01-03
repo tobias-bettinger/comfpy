@@ -21,12 +21,14 @@ channels = {'x': {'1': ax1},
 ```
 ### EN 12299
 ```python
-f = en12299(fs=200, channels=channels)
+f = en12299(fs=200, channels=channels, analyse='full')
 print(f.get('1', 'cc'))
 ```
 
 ### Wz Values
 ```python
-w = wz(fs=200, channels=channels)
+w = wz(fs=200, channels=channels, analyse='full')
 print(w.get('1', 'wz'))
 ```
+# References
+<a id="1">[1]</a> EN 12299:2009. Railway applications-ride comfort for passengers-measurements and evaluation. Brussels: CEN; 2009 April.
