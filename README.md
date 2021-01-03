@@ -21,6 +21,14 @@ channels = {'x': {'1': ax1},
 ```
 ```ax1, ay1, az1``` are all ```np.ndarray``` datatypes.
 
+The channels dictionary may also contain more channels:
+```python
+channels = {'x': {'1': ax1, '2': ax2, ..., 'n': axn},
+            'y': {'1': ay1, '2': ay2, ..., 'n': ayn},
+            'z': {'1': az1, '2': az2, ..., 'n': azn}}
+```
+If more channels are provided, each method will iterate over all data and calculate the comfort indices for each channel and direction following the method, described in each standard respectively.
+
 ### EN 12299
 A detailed description of the method can be found in <a id="1">[1]</a>. Using the previously composed channels dictionary ```channels```, a sample frequency of the acceleration channels of ```fs=200``` Hz (consistancy for each channel assumed), the Continuous Comfort Values CC can be calculated. The application of the appropriate filters is done automatically:
 ```python
