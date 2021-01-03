@@ -35,6 +35,16 @@ A detailed description of the method can be found in <a id="1">[1]</a>. Using th
 f = en12299(fs=200, channels=channels, analyse='full')
 print(f.get('1', 'cc'))
 ```
+...will output:
+```
+             x         y         z
+0     0.001375  0.000607  0.002540
+1     0.001360  0.000623  0.005034
+2     0.073673  0.003369  0.013517
+3     0.027843  0.012021  0.030859
+4     0.042937  0.030399  0.071295
+        ...       ...       ...
+```
 
 ### Wz Values
 ```python
