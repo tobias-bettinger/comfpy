@@ -87,7 +87,7 @@ class FrequencyWeighting:
             raise Exception("""please provide filterstr, e.g. filterstr='Wp'""")
 
         if a_unfilt is not None:
-            return signal.filtfilt(H[0], H[1], a_unfilt)
+            return signal.lfilter(H[0], H[1], a_unfilt)
 
         else:
             raise Exception('please provide acceleration signal array')
