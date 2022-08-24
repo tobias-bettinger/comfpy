@@ -107,8 +107,8 @@ def Wd(fs):
 def Wp(fs):
     f1p = 0  # [Hz]
     f2p = 100  # [Hz]
-    f3p = 16  # [Hz]
-    f4p = 16  # [Hz]
+    f3p = 2  # [Hz]
+    f4p = 2  # [Hz]
 
     Q1p = 1 / np.sqrt(2)  # [-]
     Q2p = 0.63  # [-]
